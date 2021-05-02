@@ -1137,7 +1137,7 @@
             for (i = 0; i < factura.length; i += 4) {
 
                 if (nombre == factura[i]) {
-
+                    total1=total1- (factura[i + 2]*factura[i + 3])
                     factura.splice(i, 4);
 
                     tablaFac()
@@ -1151,7 +1151,7 @@
             for (i = 0; i < factura.length; i += 4) {
 
                 if (nombre == factura[i]) {
-
+                    total1=total1- factura[i + 2]
                     factura[i + 3] = factura[i + 3] - 1;
 
                     tablaFac()
@@ -1164,7 +1164,7 @@
             for (i = 0; i < factura.length; i += 4) {
 
                 if (nombre == factura[i]) {
-
+                    total1=total1+ factura[i + 2]
                     factura[i + 3] = factura[i + 3] + 1;
 
                     tablaFac()
