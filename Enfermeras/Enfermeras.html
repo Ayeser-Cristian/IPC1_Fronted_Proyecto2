@@ -865,7 +865,7 @@
 
                 }
                 if (usuario == nombreu) {
-                    fetch(`http://localhost:3000/Pacientes/${usuario}`, {
+                    fetch(`https://backend202010025.herokuapp.com/Pacientes/${usuario}`, {
                         method: 'PUT',
                         body: JSON.stringify(objeto),
                         headers: {
@@ -883,7 +883,7 @@
                             modal1.style.display = "none";
                         })
                 } else {
-                    fetch(`http://localhost:3000/Pacientes1/${usuario}`, {
+                    fetch(`https://backend202010025.herokuapp.com/Pacientes1/${usuario}`, {
                         method: 'PUT',
                         body: JSON.stringify(objeto),
                         headers: {
@@ -975,7 +975,7 @@
                         'Doctor': selected,
                         'Iddoctor': sexo
                     }
-                    fetch(`http://localhost:3000/C/${Idpa}`, {
+                    fetch(`https://backend202010025.herokuapp.com/C/${Idpa}`, {
                         method: 'PUT',
                         body: JSON.stringify(objeto),
                         headers: {
@@ -1015,7 +1015,7 @@
                     'Doctor': "Rechazado",
                     'Iddoctor': ""
                 }
-                fetch(`http://localhost:3000/C/${Idpa}`, {
+                fetch(`https://backend202010025.herokuapp.com/C/${Idpa}`, {
                     method: 'PUT',
                     body: JSON.stringify(objeto),
                     headers: {
@@ -1042,7 +1042,7 @@
         function TablaPendientes() {
             var tabla = document.querySelector('#tablacita')
             var cadena = ''
-            fetch('http://localhost:3000/C', {
+            fetch('https://backend202010025.herokuapp.com/C', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -1084,7 +1084,7 @@
         function TablaAceptados() {
             var tabla = document.querySelector('#tablaacep')
             var cadena = ''
-            fetch('http://localhost:3000/C', {
+            fetch('https://backend202010025.herokuapp.com/C', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -1129,7 +1129,7 @@
             var checkxd1 = document.getElementById('sexof');
 
 
-            fetch('http://localhost:3000/Pacientes', {
+            fetch('https://backend202010025.herokuapp.com/Pacientes', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -1194,7 +1194,7 @@
             modal1.style.display = "block";
             var usuario = sessionStorage.UseE
             console.log(usuario)
-            fetch(`http://localhost:3000/Pacientes/${usuario}`, {
+            fetch(`https://backend202010025.herokuapp.com/Pacientes/${usuario}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
