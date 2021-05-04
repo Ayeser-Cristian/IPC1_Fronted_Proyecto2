@@ -228,10 +228,13 @@
                         console.log(response);
                         alert(response.Mensaje)
 
+                        if(response.Mensaje!="El nombre de usuario ya existe"){
+                            location.href = "Iniciar.html"
 
+                        }
                     })
 
-                    location.href = "Iniciar.html"  
+                    
             }
         }
 
