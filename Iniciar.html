@@ -141,7 +141,7 @@
 
 
             } else {
-                fetch('https://backend202010025.herokuapp.com/Pacientes', {
+                fetch('http://localhost:3000/Pacientes', {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -164,7 +164,7 @@
                                 sessionStorage.setItem("UseD", element.NombreUsuario)
                                 sessionStorage.setItem("NombreD", element.Nombre)
                                 sessionStorage.setItem("ApellidoD", element.Apellido)
-                                location.href = "Doctores.html"
+                                location.href = "Doctor/Doctores.html"
                                 d = true
                             } else if (element.NombreUsuario == nombre && element.Contrasena == contra && element.Tipo == "Paciente") {
 
@@ -175,7 +175,10 @@
                                 p = true
                             } else if (element.NombreUsuario == nombre && element.Contrasena == contra && element.Tipo == "Enfermera") {
                                 console.log("Enfermera")
-                                location.href = "Enfermeras.html"
+                                location.href = "Enfermeras/Enfermeras.html"
+                                sessionStorage.setItem("UseE", element.NombreUsuario)
+                                sessionStorage.setItem("NombreE", element.Nombre)
+                                sessionStorage.setItem("ApellidoE", element.Apellido)
                                 e = true
                             }
 

@@ -237,14 +237,15 @@
                 aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto my-2 my-lg-0">
-                 <!--  <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about"
+                    <!--  <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about"
                             style="color:#62acf1">About</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services"
                             style="color:#62acf1">Services</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio"
-                            style="color:#62acf1">Portfolio</a></li> --> 
+                            style="color:#62acf1">Portfolio</a></li> -->
+
                     <li class="nav-item"><button type="button" class="btn btn-danger" onclick="BtnSalir()">
-                        Cerrar Sesión</button></li>
+                            Cerrar Sesión</button></li>
                 </ul>
             </div>
         </div>
@@ -561,6 +562,10 @@
                             <h4 class="text-white mt-0" align="left">Generar PDF de Doctores</h4>
                             <button onclick="PDFM()" class="btn btn-warning" type="button" style="width: 50%;"><i
                                     class="far fa-file-pdf"></i> Generar PDF</button>
+                                <br>
+                                <br>
+                            <button type="button" class="btn btn-info" onclick="TopEn()" style="width: 50%;">
+                                Top 5 Enfermedades</button>
 
                         </div>
                         <div class="mt-5">
@@ -979,7 +984,10 @@
                             <button onclick="PDFME()" class="btn btn-warning" type="button" style="width: 50%;"><i
                                     class="far fa-file-pdf"></i> Generar PDF</button>
 
-
+                            <br>
+                            <br>
+                            <button type="button" class="btn btn-info" onclick="TopM()" style="width: 50%;">
+                                Top 5 Medicina</button>
 
                         </div>
                         <div class="mt-5">
@@ -1077,7 +1085,8 @@
                             <form>
                                 <div class="mb-3">
 
-                                    <input type="hidden" class="form-control" id="codigo" placeholder="UserName" disabled>
+                                    <input type="hidden" class="form-control" id="codigo" placeholder="UserName"
+                                        disabled>
                                 </div>
                                 <div class="mb-3">
                                     <label for="nombreme" class="form-label">Nombre Medicamento</label>
@@ -1130,6 +1139,41 @@
     </div>
 
 
+
+
+    <div id="myModalxd" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+
+            </div>
+            <div class="modal-body">
+
+                <table class="table table-bordred table-striped" , id="topme" , style="width:100%">
+                    <thead align="center">
+                        <tr class="table-dark">
+                            <th> Cantidad Vendida </th>
+                            <th> Medicamento </th>
+
+
+                        </tr>
+                    </thead>
+
+                    <tbody id="ta"></tbody>
+                </table>
+
+
+
+
+
+            </div>
+            <div class="modal-footer">
+                <h3>Modal Footer</h3>
+            </div>
+        </div>
+
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
@@ -1192,7 +1236,7 @@
                         console.log(objeto)
 
 
-                        fetch('https://backend202010025.herokuapp.com/Pacientes', {
+                        fetch('http://localhost:3000/Pacientes', {
                             method: 'POST',
                             body: JSON.stringify(objeto),
                             headers: {
@@ -1222,7 +1266,7 @@
             console.log("WWW")
             var tabla = document.querySelector('#detalles')
             var cadena = ''
-            fetch('https://backend202010025.herokuapp.com/Pacientes', {
+            fetch('http://localhost:3000/Pacientes', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -1260,7 +1304,7 @@
         function PDF() {
             var doc = new jspdf.jsPDF()
             doc.autoTable({ html: '#tablexd', theme: 'grid' })
-            doc.save('pruebaxd.pdf')
+            doc.save('ListaPacientes.pdf')
         }
 
 
@@ -1273,7 +1317,7 @@
             var cadena = ''
 
 
-            fetch('https://backend202010025.herokuapp.com/Pacientes', {
+            fetch('http://localhost:3000/Pacientes', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -1342,7 +1386,7 @@
                         console.log(objeto)
 
 
-                        fetch('https://backend202010025.herokuapp.com/Pacientes', {
+                        fetch('http://localhost:3000/Pacientes', {
                             method: 'POST',
                             body: JSON.stringify(objeto),
                             headers: {
@@ -1376,7 +1420,7 @@
         function PDFM() {
             var doc = new jspdf.jsPDF()
             doc.autoTable({ html: '#tabladoc', theme: 'grid' })
-            doc.save('pruebaxd.pdf')
+            doc.save('ListaMedicos.pdf')
         }
 
         //******************************Enfermeras****************************************************
@@ -1388,7 +1432,7 @@
             var cadena = ''
 
 
-            fetch('https://backend202010025.herokuapp.com/Pacientes', {
+            fetch('http://localhost:3000/Pacientes', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -1453,7 +1497,7 @@
                         console.log(objeto)
 
 
-                        fetch('https://backend202010025.herokuapp.com/Pacientes', {
+                        fetch('http://localhost:3000/Pacientes', {
                             method: 'POST',
                             body: JSON.stringify(objeto),
                             headers: {
@@ -1487,7 +1531,7 @@
         function PDFE() {
             var doc = new jspdf.jsPDF()
             doc.autoTable({ html: '#tablaen', theme: 'grid' })
-            doc.save('pruebaxd.pdf')
+            doc.save('ListaEnfermeras.pdf')
         }
 
         //******************************Medicionas****************************************************
@@ -1499,7 +1543,7 @@
             var cadena = ''
 
 
-            fetch('https://backend202010025.herokuapp.com/Me', {
+            fetch('http://localhost:3000/Me', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -1563,7 +1607,7 @@
                         console.log(objeto)
 
 
-                        fetch('https://backend202010025.herokuapp.com/Me', {
+                        fetch('http://localhost:3000/Me', {
                             method: 'POST',
                             body: JSON.stringify(objeto),
                             headers: {
@@ -1598,7 +1642,7 @@
         function PDFME() {
             var doc = new jspdf.jsPDF()
             doc.autoTable({ html: '#tablaMedi', theme: 'grid' })
-            doc.save('pruebaxd.pdf')
+            doc.save('ListaMedicamentos.pdf')
         }
     </script>
 
@@ -1659,7 +1703,7 @@
             modal1.style.display = "block";
             var usuario = boton.value
             console.log(usuario)
-            fetch(`https://backend202010025.herokuapp.com/Pacientes/${usuario}`, {
+            fetch(`http://localhost:3000/Pacientes/${usuario}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -1690,7 +1734,7 @@
             modal2.style.display = "block";
             var usuario = boton.value
             console.log(usuario)
-            fetch(`https://backend202010025.herokuapp.com/Pacientes/${usuario}`, {
+            fetch(`http://localhost:3000/Pacientes/${usuario}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -1723,7 +1767,7 @@
             modal3.style.display = "block";
             var usuario = boton.value
             console.log(usuario)
-            fetch(`https://backend202010025.herokuapp.com/Pacientes/${usuario}`, {
+            fetch(`http://localhost:3000/Pacientes/${usuario}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -1760,7 +1804,7 @@
             var confirmar = confirm("¿Está seguro de eliminar al paciente " + nombre + " " + apellido + " del Sistema")
             if (confirmar == true) {
 
-                fetch(`https://backend202010025.herokuapp.com/Pacientes/${nombreu}`, {
+                fetch(`http://localhost:3000/Pacientes/${nombreu}`, {
                     method: 'DELETE',
                     headers: {
                         'Content-Type': 'application/json',
@@ -1788,7 +1832,7 @@
             var confirmar = confirm("¿Está seguro de eliminar al paciente " + nombre + " " + apellido + " del Sistema")
             if (confirmar == true) {
 
-                fetch(`https://backend202010025.herokuapp.com/Pacientes/${nombreu}`, {
+                fetch(`http://localhost:3000/Pacientes/${nombreu}`, {
                     method: 'DELETE',
                     headers: {
                         'Content-Type': 'application/json',
@@ -1815,7 +1859,7 @@
             var confirmar = confirm("¿Está seguro de eliminar a la enfermera " + nombre + " " + apellido + " del Sistema")
             if (confirmar == true) {
 
-                fetch(`https://backend202010025.herokuapp.com/Pacientes/${nombreu}`, {
+                fetch(`http://localhost:3000/Pacientes/${nombreu}`, {
                     method: 'DELETE',
                     headers: {
                         'Content-Type': 'application/json',
@@ -1859,7 +1903,7 @@
 
 
                 }
-                fetch(`https://backend202010025.herokuapp.com/Pacientes/${nombreu}`, {
+                fetch(`http://localhost:3000/Pacientes/${nombreu}`, {
                     method: 'PUT',
                     body: JSON.stringify(objeto),
                     headers: {
@@ -1904,7 +1948,7 @@
 
 
                 }
-                fetch(`https://backend202010025.herokuapp.com/Pacientes/${nombreu}`, {
+                fetch(`http://localhost:3000/Pacientes/${nombreu}`, {
                     method: 'PUT',
                     body: JSON.stringify(objeto),
                     headers: {
@@ -1950,7 +1994,7 @@
 
 
                 }
-                fetch(`https://backend202010025.herokuapp.com/Pacientes/${nombreu}`, {
+                fetch(`http://localhost:3000/Pacientes/${nombreu}`, {
                     method: 'PUT',
                     body: JSON.stringify(objeto),
                     headers: {
@@ -1996,7 +2040,7 @@
             modal.style.display = "block";
             var usuario = boton.value
             console.log(usuario)
-            fetch(`https://backend202010025.herokuapp.com/Me/${usuario}`, {
+            fetch(`http://localhost:3000/Me/${usuario}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -2040,7 +2084,7 @@
                     'Descripcion': descripcion,
                     'Cantidad': cantidad
                 }
-                fetch(`https://backend202010025.herokuapp.com/Me/${codigo}`, {
+                fetch(`http://localhost:3000/Me/${codigo}`, {
                     method: 'PUT',
                     body: JSON.stringify(objeto),
                     headers: {
@@ -2067,7 +2111,7 @@
             var confirmar = confirm("¿Está seguro de eliminar el medicamento " + nombre + " del Sistema")
             if (confirmar == true) {
 
-                fetch(`https://backend202010025.herokuapp.com/Me/${nombre}`, {
+                fetch(`http://localhost:3000/Me/${nombre}`, {
                     method: 'DELETE',
                     headers: {
                         'Content-Type': 'application/json',
@@ -2088,8 +2132,167 @@
 
         }
 
-        function BtnSalir(){
+        function BtnSalir() {
             location.href = "../Iniciar.html"
+        }
+
+      var  TopEnfermerdad=[]
+        function TopEn(){
+            fetch('http://localhost:3000/enfermedad', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*',
+                }
+            })
+                .then(res => res.json())
+                .catch(err => {
+                    console.error('Error:', err)
+                    alert("Ocurrio un error, ver la consola")
+                })
+                .then(response => {
+                    //  console.log(response);
+                    response.forEach(element => {
+                        TopEnfermerdad.push(element.Cantidad, element.Nombre)
+                        // console.log(MedicienaToo)
+
+                    });
+                    OrdenarTop1()
+                })
+        }
+
+        function OrdenarTop1() {
+            var auxiliar = 0;
+            var auxiliar1 = "";
+            for (i = 0; i <  TopEnfermerdad.length - 1; i += 2) {
+                for (j = i; j <  TopEnfermerdad.length; j += 2) {
+                    if ( TopEnfermerdad[i] <  TopEnfermerdad[j]) {
+                        auxiliar =  TopEnfermerdad[i];
+                        TopEnfermerdad[i] =  TopEnfermerdad[j];
+                        TopEnfermerdad[j] = auxiliar;
+
+                        auxiliar1 =  TopEnfermerdad[i + 1];
+                        TopEnfermerdad[i + 1] =  TopEnfermerdad[j + 1];
+                        TopEnfermerdad[j + 1] = auxiliar1;
+                    }
+                }
+            }
+            var tabla = document.querySelector('#ta')
+
+            var cadena = ''
+           
+                for (i = 0; i <  TopEnfermerdad.length; i += 2) {
+                    cadena += `<tr class="table-success", align="center">
+                    <td> ${ TopEnfermerdad[i]} </td>
+                    <td> ${ TopEnfermerdad[i + 1]} </td>
+                   
+                        
+                    </tr>`
+                }
+        
+
+            tabla.innerHTML = cadena
+            console.log( TopEnfermerdad)
+
+
+            var doc = new jspdf.jsPDF()
+            doc.setFontSize(20);
+            doc.text("Enfermedades mas comunes", 40, 10);
+
+
+            doc.autoTable({ html: '#topme' })
+
+            doc.save('TopEnfermedades.pdf')
+
+            TopEnfermerdad = []
+        }
+
+
+
+
+
+        var MedicienaToo = []
+        function TopM() {
+
+            // var tabla = document.querySelector('#detalles')
+            //var cadena = ''
+            fetch('http://localhost:3000/Compra', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*',
+                }
+            })
+                .then(res => res.json())
+                .catch(err => {
+                    console.error('Error:', err)
+                    alert("Ocurrio un error, ver la consola")
+                })
+                .then(response => {
+                    //  console.log(response);
+                    response.forEach(element => {
+                        MedicienaToo.push(element.Cantidad, element.Nombre)
+                        // console.log(MedicienaToo)
+
+                    });
+                    OrdenarTop()
+                })
+
+        }
+        function OrdenarTop() {
+            var auxiliar = 0;
+            var auxiliar1 = "";
+            for (i = 0; i < MedicienaToo.length - 1; i += 2) {
+                for (j = i; j < MedicienaToo.length; j += 2) {
+                    if (MedicienaToo[i] < MedicienaToo[j]) {
+                        auxiliar = MedicienaToo[i];
+                        MedicienaToo[i] = MedicienaToo[j];
+                        MedicienaToo[j] = auxiliar;
+
+                        auxiliar1 = MedicienaToo[i + 1];
+                        MedicienaToo[i + 1] = MedicienaToo[j + 1];
+                        MedicienaToo[j + 1] = auxiliar1;
+                    }
+                }
+            }
+            var tabla = document.querySelector('#ta')
+
+            var cadena = ''
+            if (MedicienaToo.length < 10) {
+                for (i = 0; i < MedicienaToo.length; i += 2) {
+                    cadena += `<tr class="table-success", align="center">
+                    <td> ${MedicienaToo[i]} </td>
+                    <td> ${MedicienaToo[i + 1]} </td>
+                   
+                        
+                    </tr>`
+                }
+            } else {
+                for (i = 0; i < 10; i += 2) {
+                    cadena += `<tr class="table-success", align="center">
+                    <td> ${MedicienaToo[i]} </td>
+                    <td> ${MedicienaToo[i + 1]} </td>
+                   
+                        
+                    </tr>`
+                }
+
+            }
+
+            tabla.innerHTML = cadena
+            console.log(MedicienaToo)
+
+
+            var doc = new jspdf.jsPDF()
+            doc.setFontSize(20);
+            doc.text("Top 5 Medicamentos más vendidos", 40, 10);
+
+
+            doc.autoTable({ html: '#topme' })
+
+            doc.save('TopMedicamentos.pdf')
+
+            MedicienaToo = []
         }
 
     </script>
@@ -2119,7 +2322,7 @@
                         console.log(objeto)
 
 
-                        fetch('https://backend202010025.herokuapp.com/Pacientes', {
+                        fetch('http://localhost:3000/Pacientes', {
                             method: 'POST',
                             body: JSON.stringify(objeto),
                             headers: {
