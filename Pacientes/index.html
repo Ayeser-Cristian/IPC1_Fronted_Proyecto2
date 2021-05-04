@@ -694,7 +694,7 @@
             modal.style.display = "block";
             var usuario = sessionStorage.UseP
             console.log(usuario)
-            fetch(`http://localhost:3000/Pacientes/${usuario}`, {
+            fetch(`https://backend202010025.herokuapp.com/Pacientes/${usuario}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -746,7 +746,7 @@
 
                 }
                 if (usuario == nombreu) {
-                    fetch(`http://localhost:3000/Pacientes/${usuario}`, {
+                    fetch(`https://backend202010025.herokuapp.com/Pacientes/${usuario}`, {
                         method: 'PUT',
                         body: JSON.stringify(objeto),
                         headers: {
@@ -764,7 +764,7 @@
                             modal.style.display = "none";
                         })
                 } else {
-                    fetch(`http://localhost:3000/Pacientes1/${usuario}`, {
+                    fetch(`https://backend202010025.herokuapp.com/Pacientes1/${usuario}`, {
                         method: 'PUT',
                         body: JSON.stringify(objeto),
                         headers: {
@@ -800,7 +800,7 @@
         /* function Datospacientes() {
              var usuario = sessionStorage.UseP
  
-             fetch(`http://localhost:3000/Pacientes/${usuario}`, {
+             fetch(`https://backend202010025.herokuapp.com/Pacientes/${usuario}`, {
                  method: 'GET',
                  headers: {
                      'Content-Type': 'application/json',
@@ -850,7 +850,7 @@
                 }
                 console.log(objeto)
 
-                fetch('http://localhost:3000/C', {
+                fetch('https://backend202010025.herokuapp.com/C', {
                     method: 'POST',
                     body: JSON.stringify(objeto),
                     headers: {
@@ -883,7 +883,7 @@
             var cadena = ''
 
 
-            fetch('http://localhost:3000/C', {
+            fetch('https://backend202010025.herokuapp.com/C', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -966,7 +966,7 @@
             var cadena = ''
 
 
-            fetch('http://localhost:3000/Me', {
+            fetch('https://backend202010025.herokuapp.com/Me', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -1031,7 +1031,7 @@
             var usuario = boton.value
             var contarmedicina = 0
             console.log(usuario)
-            fetch(`http://localhost:3000/Me/${usuario}`, {
+            fetch(`https://backend202010025.herokuapp.com/Me/${usuario}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -1193,7 +1193,7 @@
                 }
                 //  console.log(objeto)
 
-                fetch('http://localhost:3000/Compra', {
+                fetch('https://backend202010025.herokuapp.com/Compra', {
                     method: 'POST',
                     body: JSON.stringify(objeto),
                     headers: {
@@ -1246,7 +1246,7 @@
                 /*  contador += 2;
                   console.log(codigo)
                   console.log(producto[contador])*/
-                fetch(`http://localhost:3000/MeCa/${codigo}`, {
+                fetch(`https://backend202010025.herokuapp.com/MeCa/${codigo}`, {
                     method: 'PUT',
                     body: JSON.stringify(objeto1),
                     headers: {
