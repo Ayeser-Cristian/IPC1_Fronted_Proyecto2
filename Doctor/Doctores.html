@@ -632,7 +632,7 @@
                 }
                 //  console.log(objeto)
 
-                fetch('http://localhost:3000/enfermedad', {
+                fetch('https://backend202010025.herokuapp.com/enfermedad', {
                     method: 'POST',
                     body: JSON.stringify(objeto),
                     headers: {
@@ -657,7 +657,7 @@
             modal.style.display = "block";
             var usuario = sessionStorage.UseD
             console.log(usuario)
-            fetch(`http://localhost:3000/Pacientes/${usuario}`, {
+            fetch(`https://backend202010025.herokuapp.com/Pacientes/${usuario}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -709,7 +709,7 @@
 
                 }
                 if (usuario == nombreu) {
-                    fetch(`http://localhost:3000/Pacientes/${usuario}`, {
+                    fetch(`https://backend202010025.herokuapp.com/Pacientes/${usuario}`, {
                         method: 'PUT',
                         body: JSON.stringify(objeto),
                         headers: {
@@ -727,7 +727,7 @@
                             modal.style.display = "none";
                         })
                 } else {
-                    fetch(`http://localhost:3000/Pacientes1/${usuario}`, {
+                    fetch(`https://backend202010025.herokuapp.com/Pacientes1/${usuario}`, {
                         method: 'PUT',
                         body: JSON.stringify(objeto),
                         headers: {
@@ -784,7 +784,7 @@
                     'Doctor': doc,
                     'Iddoctor': iddoc
                 }
-                fetch(`http://localhost:3000/C/${Idpa}`, {
+                fetch(`https://backend202010025.herokuapp.com/C/${Idpa}`, {
                     method: 'PUT',
                     body: JSON.stringify(objeto),
                     headers: {
@@ -821,7 +821,7 @@
                     'Doctor': "Rechazado",
                     'Iddoctor': "Rechazado"
                 }
-                fetch(`http://localhost:3000/C/${Idpa}`, {
+                fetch(`https://backend202010025.herokuapp.com/C/${Idpa}`, {
                     method: 'PUT',
                     body: JSON.stringify(objeto),
                     headers: {
@@ -849,7 +849,7 @@
 
             var tabla = document.querySelector('#tablacita')
             var cadena = ''
-            fetch('http://localhost:3000/C', {
+            fetch('https://backend202010025.herokuapp.com/C', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -890,7 +890,7 @@
             var doctorxd = sessionStorage.UseD
             var tabla = document.querySelector('#tablaacep')
             var cadena = ''
-            fetch('http://localhost:3000/C', {
+            fetch('https://backend202010025.herokuapp.com/C', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -951,7 +951,7 @@
                     'Doctor': doc,
                     'Iddoctor': iddoc
                 }
-                fetch(`http://localhost:3000/C/${paciente}`, {
+                fetch(`https://backend202010025.herokuapp.com/C/${paciente}`, {
                     method: 'PUT',
                     body: JSON.stringify(objeto),
                     headers: {
@@ -983,7 +983,7 @@
                     'Doctor': doc,
                     'Iddoctor': iddoc
                 }
-                fetch(`http://localhost:3000/C/${paciente}`, {
+                fetch(`https://backend202010025.herokuapp.com/C/${paciente}`, {
                     method: 'PUT',
                     body: JSON.stringify(objeto),
                     headers: {
